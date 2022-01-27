@@ -140,12 +140,14 @@
       true,
       "attribute",
       "app",
+      "bzv",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
       "app",
+      "bzv",
       "kebab-case"
     ]
   }
