@@ -123,6 +123,78 @@ class MapComponent {
                         latLng: [50.36445, 29.345],
                     }
                 ]
+            },
+            {
+                name: 'Hluhiv Bilyi bereg 152 km',
+                id: 3,
+                points: [
+                    {
+                        name: 'Buzovakta',
+                        latLng: [50.39862, 30.06],
+                    },
+                    {
+                        name: 'Hluhiv',
+                        latLng: [50.53445, 29.19917],
+                    },
+                    {
+                        name: 'Bilyi Bereh',
+                        latLng: [50.76, 29.48195],
+                    }
+                ]
+            },
+            {
+                name: 'Nedashki2 Kocherov 202 km',
+                id: 4,
+                points: [
+                    {
+                        name: 'Buzovakta',
+                        latLng: [50.39862, 30.06],
+                    },
+                    {
+                        name: 'Nedashki2',
+                        latLng: [50.97112, 29.29388],
+                    },
+                    {
+                        name: 'Kocherov',
+                        latLng: [50.36445, 29.345],
+                    }
+                ]
+            },
+            {
+                name: 'Narodichi Luginy Bilyi Bereh 301 km km',
+                id: 5,
+                points: [
+                    {
+                        name: 'Buzovakta',
+                        latLng: [50.39862, 30.06],
+                    },
+                    {
+                        name: 'Narodichi',
+                        latLng: [51.20138, 29.06972],
+                    },
+                    {
+                        name: 'Luginy',
+                        latLng: [51.09305, 28.41945],
+                    }
+                ]
+            },
+            {
+                name: 'Obykhody Volodarsk Novezhyttia 302 km',
+                id: 6,
+                points: [
+                    {
+                        name: 'Buzovakta',
+                        latLng: [50.39862, 30.06],
+                    },
+                    {
+                        name: '164Obykhody',
+                        latLng: [51.01612, 28.97028],
+                    },
+                    {
+                        name: '133Volodarsk',
+                        latLng: [50.6075, 28.46667],
+                    }
+                ]
             }
         ];
     }
@@ -149,7 +221,7 @@ MapComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["�
     } }, inputs: { routeList: "routeList" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵProvidersFeature"]([_map_store__WEBPACK_IMPORTED_MODULE_0__.MapStore])], decls: 3, vars: 0, consts: [[1, "l-map"], ["map", ""]], template: function MapComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "div", 0, 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](2, "bzv-route-info");
-    } }, directives: [_route_info_route_info_component__WEBPACK_IMPORTED_MODULE_1__.RouteInfoComponent], styles: ["[_nghost-%COMP%] {\n  height: 100%;\n  width: 100%;\n  display: block;\n  position: relative;\n}\n[_nghost-%COMP%]     .leaflet-div-icon {\n  background-color: transparent;\n  border: none;\n}\n.l-map[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n.bzv-route-info[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  z-index: 2;\n  padding: 12px 24px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hcC5jb21wb25lbnQubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUNFLFlBQUE7RUFDQSxXQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0FBQUY7QUFKQTtFQVFNLDZCQUFBO0VBQ0EsWUFBQTtBQUROO0FBS0E7RUFDRSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxNQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxVQUFBO0FBSEY7QUFNQTtFQUNFLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLE9BQUE7RUFDQSxVQUFBO0VBQ0Esa0JBQUE7QUFKRiIsImZpbGUiOiJtYXAuY29tcG9uZW50Lmxlc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbjpob3N0e1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuXG4gIDo6bmctZGVlcHtcbiAgICAubGVhZmxldC1kaXYtaWNvbntcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICAgICAgYm9yZGVyOiBub25lO1xuICAgIH1cbiAgfVxufVxuLmwtbWFwIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIHotaW5kZXg6IDE7XG59XG5cbi5ienYtcm91dGUtaW5mb3tcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBib3R0b206IDA7XG4gIGxlZnQ6IDA7XG4gIHotaW5kZXg6IDI7XG4gIHBhZGRpbmc6IDEycHggMjRweDtcbn1cbiJdfQ== */"] });
+    } }, directives: [_route_info_route_info_component__WEBPACK_IMPORTED_MODULE_1__.RouteInfoComponent], styles: ["[_nghost-%COMP%] {\n  height: 100%;\n  width: 100%;\n  display: block;\n  position: relative;\n}\n[_nghost-%COMP%]     .leaflet-div-icon {\n  background-color: transparent;\n  border: none;\n}\n.l-map[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n.bzv-route-info[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  padding: 12px 24px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hcC5jb21wb25lbnQubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUNFLFlBQUE7RUFDQSxXQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0FBQUY7QUFKQTtFQVFNLDZCQUFBO0VBQ0EsWUFBQTtBQUROO0FBS0E7RUFDRSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxNQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxVQUFBO0FBSEY7QUFNQTtFQUNFLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLE9BQUE7RUFDQSxVQUFBO0VBQ0Esa0JBQUE7QUFKRiIsImZpbGUiOiJtYXAuY29tcG9uZW50Lmxlc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbjpob3N0e1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuXG4gIDo6bmctZGVlcHtcbiAgICAubGVhZmxldC1kaXYtaWNvbntcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICAgICAgYm9yZGVyOiBub25lO1xuICAgIH1cbiAgfVxufVxuLmwtbWFwIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIHotaW5kZXg6IDE7XG59XG5cbi5ienYtcm91dGUtaW5mb3tcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDA7XG4gIGxlZnQ6IDA7XG4gIHotaW5kZXg6IDI7XG4gIHBhZGRpbmc6IDEycHggMjRweDtcbn1cbiJdfQ== */"] });
 
 
 /***/ }),
@@ -200,7 +272,7 @@ class MapStore extends _ngrx_component_store__WEBPACK_IMPORTED_MODULE_2__.Compon
         this.routes$ = this.select(({ routes }) => routes);
         this.selected$ = this.select(({ selected }) => selected);
         this.mapInit = this.updater((state, el) => {
-            const lmap = leaflet__WEBPACK_IMPORTED_MODULE_0__.map(el).setView([50.4113, 30.0456], 10);
+            const lmap = leaflet__WEBPACK_IMPORTED_MODULE_0__.map(el).setView([50.4113, 29.9358], 10);
             const tileLayer = leaflet__WEBPACK_IMPORTED_MODULE_0__.tileLayer('https://c.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery ©',
                 maxZoom: 18,
@@ -229,7 +301,8 @@ class MapStore extends _ngrx_component_store__WEBPACK_IMPORTED_MODULE_2__.Compon
         this.activeRouteId$ = this.select(({ activeRouteId }) => activeRouteId);
         this.updateRouteList = this.effect((routes$) => {
             return (0,rxjs__WEBPACK_IMPORTED_MODULE_4__.combineLatest)([routes$, this.lmap$])
-                .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(([routes]) => {
+                .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(([routes, lmap]) => {
+                lmap.zoomControl.setPosition('bottomright');
                 return routes;
             }))
                 .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.tap)(() => {
@@ -252,6 +325,9 @@ class MapStore extends _ngrx_component_store__WEBPACK_IMPORTED_MODULE_2__.Compon
                     this.setChecked({ id: r.id, checked: true });
                 });
                 this.updateRoutes(routes);
+                return;
+            }))
+                .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.tap)(() => {
             }));
         });
         this.isChecked$ = (id) => {
@@ -310,22 +386,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function RouteInfoComponent_li_2_Template(rf, ctx) { if (rf & 1) {
-    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+    const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "li", 1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("mouseover", function RouteInfoComponent_li_2_Template_li_mouseover_0_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r3); const item_r1 = restoredCtx.$implicit; const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r2.onHover(item_r1.id); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("mouseover", function RouteInfoComponent_li_2_Template_li_mouseover_0_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4); const item_r1 = restoredCtx.$implicit; const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r3.onHover(item_r1.id); });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "input", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("change", function RouteInfoComponent_li_2_Template_input_change_2_listener($event) { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r3); const item_r1 = restoredCtx.$implicit; const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r4.onValueChange($event, item_r1.id); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("change", function RouteInfoComponent_li_2_Template_input_change_2_listener($event) { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4); const item_r1 = restoredCtx.$implicit; const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r5.onValueChange($event, item_r1.id); });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipe"](3, "async");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const item_r1 = ctx.$implicit;
+    const i_r2 = ctx.index;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", item_r1.name, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate2"](" ", i_r2 + 1, " ", item_r1.name, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("checked", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipeBind1"](3, 2, ctx_r0.isChecked(item_r1.id)));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("checked", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipeBind1"](3, 3, ctx_r0.isChecked(item_r1.id)));
 } }
 class RouteInfoComponent {
     constructor(store) {
@@ -355,7 +432,7 @@ RouteInfoComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_
     } }, decls: 4, vars: 3, consts: [[3, "mouseover", 4, "ngFor", "ngForOf"], [3, "mouseover"], ["type", "checkbox", 3, "checked", "change"]], template: function RouteInfoComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, RouteInfoComponent_li_2_Template, 4, 4, "li", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, RouteInfoComponent_li_2_Template, 4, 5, "li", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipe"](3, "async");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -462,7 +539,7 @@ class RouteLayer {
             color: 'red',
             fillColor: '#f03',
             fillOpacity: 0.2,
-            radius: 500
+            radius: 1000
         });
     }
 }
