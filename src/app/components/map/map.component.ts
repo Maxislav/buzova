@@ -58,7 +58,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.store.updateRouteList(list);
   }
 
-  constructor(private store: MapStore) {
+  constructor(public store: MapStore) {
   }
 
   ngOnInit(): void {
