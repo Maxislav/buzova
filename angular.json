@@ -27,7 +27,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles.less",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": [],
             "vendorChunk": true,
@@ -71,7 +72,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "buzova:build"
+            "browserTarget": "buzova:build",
+            "port": 7001
           },
           "configurations": {
             "production": {
