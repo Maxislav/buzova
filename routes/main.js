@@ -193,6 +193,10 @@ class MapComponent {
                     {
                         name: '133Volodarsk',
                         latLng: [50.6075, 28.46667],
+                    },
+                    {
+                        name: '152Novezhyttia',
+                        latLng: [50.86, 29.395],
                     }
                 ]
             }
