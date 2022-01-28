@@ -4,11 +4,13 @@ import { Injector, NgModule } from '@angular/core';
 import { MapComponent } from './components/map/map.component';
 import { createCustomElement } from '@angular/elements';
 import { CommonModule } from '@angular/common';
+import { RouteInfoComponent } from './components/route-info/route-info.component';
 
 @NgModule({
-  imports: [BrowserModule, CommonModule],
+  imports: [CommonModule, BrowserModule],
   declarations: [
-    MapComponent
+    MapComponent,
+    RouteInfoComponent
   ],
   providers: [],
 })

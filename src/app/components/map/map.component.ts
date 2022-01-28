@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import * as L from 'leaflet';
 import { IRoute } from '../../interface/route.interface';
 import { ReplaySubject } from 'rxjs';
@@ -13,15 +13,15 @@ import { take } from 'rxjs/operators';
   providers: [MapStore]
 })
 export class MapComponent implements OnInit, AfterViewInit {
-  private viewInit$ = new ReplaySubject(1);
-  private map;
+  @ViewChild('map', {read: ElementRef}) map;
   initialRouteList: IRoute[] = [
     {
-      name: 'Андреевка Осовцы',
+      name: 'Andreevka Osovcy 100км ',
+      id: 1,
       points: [
         {
           name: 'Buzove',
-          latLng: [50.3977, 30.0569]
+          latLng: [50.39862, 30.06],
         },
         {
           name: 'Andreevka',
@@ -32,6 +32,25 @@ export class MapComponent implements OnInit, AfterViewInit {
           latLng: [50.3335, 29.4717]
         }
       ],
+    },
+    {
+      name: 'Migalki Kocherov 134 km,',
+      id: 2,
+      points: [
+        {
+
+          name: '000Buzovakta',
+          latLng: [50.39862, 30.06],
+        },
+        {
+          name: '075Migalki',
+          latLng: [50.66445, 29.54695],
+        },
+        {
+          name: '049Kocherov',
+          latLng: [50.36445, 29.345],
+        }
+      ]
     }
   ];
 
@@ -39,7 +58,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.store.updateRouteList(list);
   }
 
-  constructor(private elementRef: ElementRef, private store: MapStore) {
+  constructor(private store: MapStore) {
   }
 
   ngOnInit(): void {
@@ -50,27 +69,12 @@ export class MapComponent implements OnInit, AfterViewInit {
       .pipe(take(1))
       .subscribe(map => {
 
-      })
-
-  }
-
-
-  private drawPoint(): void {
-    const circle = L.circle([51.508, -0.11], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 500
-    }).addTo(this.map);
-  }
-
-  private drawRoute(points: IPoint[]): void {
+      });
 
   }
 
   ngAfterViewInit(): void {
-    // this.map = L.map(this.elementRef.nativeElement).setView([50.4113, 30.0456], 10);
-    this.store.mapInit(this.elementRef.nativeElement);
+    this.store.mapInit(   this.map.nativeElement);
   }
 
 }

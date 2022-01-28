@@ -5,22 +5,19 @@ import * as L from 'leaflet';
 import { concatMap, filter, flatMap, map, mergeMap, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { combineLatest, Observable, of, pipe } from 'rxjs';
 import { circle, Circle, LatLng, Polygon } from 'leaflet';
+import { RouteLayer } from '../../utils/route-layer';
 
 // import L from ''
 
 interface MapState {
-  routes: IRoute[];
-  circles: Circle[];
-  polygons: Polygon[];
-  viewInit: boolean;
+  activeRouteId: number;
+  routes: RouteLayer[];
   lmap: L.Map;
 }
 
 const defaultState: MapState = {
+  activeRouteId: -1,
   routes: [],
-  circles: [],
-  polygons: [],
-  viewInit: false,
   lmap: null
 };
 
@@ -37,20 +34,20 @@ export class MapStore extends ComponentStore<MapState> {
     };
   });
 
-  readonly lmap$ = this.select(({ lmap }) => {
-    return lmap;
-  }).pipe(filter(Boolean));
-
-  readonly circles$ = this.select(({ circles }) => {
-    return circles;
-  });
-
-  readonly setRoutes = this.updater((state, routes: IRoute[]) => {
+  updateRoutes = this.updater((state, routes: RouteLayer[]) => {
     return {
       ...state,
       routes
     };
   });
+
+  readonly lmap$ = this.select(({ lmap }) => {
+    return lmap;
+  }).pipe(filter(Boolean));
+
+  readonly routes$ = this.select(({ routes }) => routes);
+
+  readonly routeNames$ = this.routes$.pipe(map((routeLayers: RouteLayer[]) => routeLayers.map(r => r.name)))
 
   readonly mapInit = this.updater((state, el: HTMLElement) => {
     const lmap = L.map(el).setView([50.4113, 30.0456], 10);
@@ -65,72 +62,34 @@ export class MapStore extends ComponentStore<MapState> {
       lmap,
     };
   });
-  readonly setCircles = this.updater((state, circles: Circle[]) => {
-    return {
-      ...state,
-      circles
-    };
-  });
-  readonly setPolygons = this.updater((state, polygons: Polygon[]) => {
-    return {
-      ...state,
-      polygons
-    };
-  });
 
   readonly updateRouteList = this.effect((routes$: Observable<IRoute[]>) => {
-
-    return combineLatest([routes$, this.lmap$, ])
-      .pipe(map(([r]) => r ))
+    return combineLatest([routes$, this.lmap$])
+      .pipe(tap(() => {
+        this.get().routes
+          .forEach(r => r.remove());
+      }))
+      .pipe(map(([r]) => r))
       .pipe(map((routes) => {
-        const cc: Circle[] = [];
-        const pp: Polygon[] = [];
-        routes.forEach((route: IRoute) => {
-          route.points
-            .forEach((p) => {
-              const c = this.getCircle(p.latLng);
-              cc.push(c);
-            });
-          const latLng: LatLng[] = [];
+        const _routes = [];
+        routes.forEach(route => {
+          const latLngList: LatLng[] = [];
+          const routeLayer: RouteLayer = new RouteLayer(route.id, route.name, this.get().lmap);
+          _routes.push(routeLayer);
           route.points
             .forEach(p => {
-              latLng.push(new LatLng(p.latLng[0], p.latLng[1]));
+              latLngList.push(new LatLng(p.latLng[0], p.latLng[1]));
             });
-          const polygon = this.getPolygon(latLng);
-          pp.push(polygon);
+          routeLayer.setLatLng(latLngList).draw();
         });
-        const { circles, polygons, lmap } = this.get();
-        [...circles, ...polygons]
-          .forEach(c => {
-            lmap.removeLayer(c);
-          });
-
-        [...cc, ...pp].forEach(c => {
-          c.addTo(lmap);
-        });
-        this.setCircles(cc);
-        this.setPolygons(pp);
-        lmap
+        this.updateRoutes(_routes);
         return true;
       }));
   });
 
-  private getCircle(latLng): Circle {
-    return L.circle(latLng, {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 500
-    });
-  }
-
-  private getPolygon(latLng: LatLng[]): Polygon {
-    return L.polygon([
-      ...latLng
-    ], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.02,
-    });
+  readonly routesById$ = (id) => {
+    return this.routes$.pipe(map((r) => {
+      return r.find(route => route.id === id);
+    }));
   }
 }
