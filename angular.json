@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/buzova",
+            "outputPath": "routes",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -34,6 +34,7 @@
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
+            "extractCss": false,
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true
