@@ -15,7 +15,7 @@ export class RouteLayer {
 
   public setLatLng(latLng: LatLng[]): RouteLayer {
     this.remove();
-    this.circles.length = 0
+    this.circles.length = 0;
     this.latLng = latLng;
     this.setCircles();
     this.setPolygon();
@@ -39,6 +39,11 @@ export class RouteLayer {
     this.polygon.setStyle({
       opacity: 1,
     });
+    this.circles.forEach(c => {
+      c.setStyle({
+        opacity: 1
+      });
+    });
     const latMin = Math.min(...this.latLng.map(ll => ll.lat));
     const latMax = Math.max(...this.latLng.map(ll => ll.lat));
     const lngMax = Math.max(...this.latLng.map(ll => ll.lng));
@@ -52,7 +57,12 @@ export class RouteLayer {
 
   public deHighlight(): void {
     this.polygon.setStyle({
-      opacity: 0.2,
+      opacity: 0.4,
+    });
+    this.circles.forEach(c => {
+      c.setStyle({
+        opacity: 0.5
+      });
     });
   }
 
@@ -84,7 +94,7 @@ export class RouteLayer {
       ...this.latLng
     ], {
       color: 'red',
-      opacity: 0.2,
+      opacity: 0.4,
       fillColor: '#f03',
       fillOpacity: 0.02,
     });
@@ -94,8 +104,9 @@ export class RouteLayer {
   private getCircle(latLng): Circle {
     return L.circle(latLng, {
       color: 'red',
+      opacity: 0.5,
       fillColor: '#f03',
-      fillOpacity: 0.2,
+      fillOpacity: 0.1,
       radius: 1000
     });
   }

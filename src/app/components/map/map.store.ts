@@ -23,6 +23,8 @@ const defaultState: MapState = {
   selected: []
 };
 
+const LOCAL_STORAGE_ROUTES = 'routes';
+
 @Injectable()
 export class MapStore extends ComponentStore<MapState> {
 
@@ -99,12 +101,10 @@ export class MapStore extends ComponentStore<MapState> {
       if (!selected.includes(params.id)) {
         selected.push(params.id);
       }
-
     } else if (-1 < i) {
       selected.splice(i, 1);
     }
-
-    // routes.find(it => it.id === params.id).checked = params.checked;
+    localStorage.setItem(LOCAL_STORAGE_ROUTES, JSON.stringify(selected));
     return {
       ...state,
       selected
@@ -114,8 +114,7 @@ export class MapStore extends ComponentStore<MapState> {
   activeRouteId$ = this.select(({ activeRouteId }) => activeRouteId);
 
 
-  readonly updateRouteList = this.effect((routes$: Observable<IRoute[]>) => {
-
+  readonly initRouteList = this.effect((routes$: Observable<IRoute[]>) => {
     return combineLatest([routes$, this.lmap$])
       .pipe(map(([routes, lmap]: [IRoute[], L.Map]) => {
         lmap.zoomControl.setPosition('bottomright');
@@ -124,9 +123,9 @@ export class MapStore extends ComponentStore<MapState> {
       .pipe(tap(() => {
         this.routes
           .forEach(r => r.remove());
+        this.routes.length = 0;
       }))
       .pipe(map((routes) => {
-        /// const _routes = [];
         routes.forEach(route => {
           const latLngList: LatLng[] = [];
           const routeLayer: RouteLayer = new RouteLayer(route.id, route.name, this.get().lmap);
@@ -137,22 +136,32 @@ export class MapStore extends ComponentStore<MapState> {
             });
           routeLayer.setLatLng(latLngList);
         });
-        this.setChecked({ id: 1, checked: true });
+        const selected = this.getSelectedFromLocalStorage();
+        selected.forEach(id => {
+          this.setChecked({ id, checked: true });
+        });
+
         this.updateRoutes(routes);
         return;
-      }))
-      .pipe(tap(() => {
-
-
       }));
+
   });
 
-
-  isChecked$ = (id) => {
+  public isChecked$(id): Observable<boolean> {
     return this.selected$
       .pipe(map((r) => {
         return r.includes(id);
       }));
-  };
+  }
+
+  private getSelectedFromLocalStorage(): number[] {
+    let selected = [];
+    try {
+      selected = JSON.parse(localStorage.getItem(LOCAL_STORAGE_ROUTES)) || [1];
+    } catch (e) {
+      selected = [];
+    }
+    return selected;
+  }
 
 }

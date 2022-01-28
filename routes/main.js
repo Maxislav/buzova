@@ -203,10 +203,10 @@ class MapComponent {
         ];
     }
     set routeList(list) {
-        this.store.updateRouteList(list);
+        this.store.initRouteList(list);
     }
     ngOnInit() {
-        this.store.updateRouteList(this.initialRouteList);
+        this.store.initRouteList(this.initialRouteList);
         this.store.lmap$
             .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.take)(1))
             .subscribe(map => {
@@ -263,6 +263,7 @@ const defaultState = {
     lmap: null,
     selected: []
 };
+const LOCAL_STORAGE_ROUTES = 'routes';
 class MapStore extends _ngrx_component_store__WEBPACK_IMPORTED_MODULE_2__.ComponentStore {
     constructor() {
         super(defaultState);
@@ -299,11 +300,11 @@ class MapStore extends _ngrx_component_store__WEBPACK_IMPORTED_MODULE_2__.Compon
             else if (-1 < i) {
                 selected.splice(i, 1);
             }
-            // routes.find(it => it.id === params.id).checked = params.checked;
+            localStorage.setItem(LOCAL_STORAGE_ROUTES, JSON.stringify(selected));
             return Object.assign(Object.assign({}, state), { selected });
         });
         this.activeRouteId$ = this.select(({ activeRouteId }) => activeRouteId);
-        this.updateRouteList = this.effect((routes$) => {
+        this.initRouteList = this.effect((routes$) => {
             return (0,rxjs__WEBPACK_IMPORTED_MODULE_4__.combineLatest)([routes$, this.lmap$])
                 .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(([routes, lmap]) => {
                 lmap.zoomControl.setPosition('bottomright');
@@ -312,9 +313,9 @@ class MapStore extends _ngrx_component_store__WEBPACK_IMPORTED_MODULE_2__.Compon
                 .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.tap)(() => {
                 this.routes
                     .forEach(r => r.remove());
+                this.routes.length = 0;
             }))
                 .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)((routes) => {
-                /// const _routes = [];
                 routes.forEach(route => {
                     const latLngList = [];
                     const routeLayer = new _utils_route_layer__WEBPACK_IMPORTED_MODULE_1__.RouteLayer(route.id, route.name, this.get().lmap);
@@ -325,19 +326,14 @@ class MapStore extends _ngrx_component_store__WEBPACK_IMPORTED_MODULE_2__.Compon
                     });
                     routeLayer.setLatLng(latLngList);
                 });
-                this.setChecked({ id: 1, checked: true });
+                const selected = this.getSelectedFromLocalStorage();
+                selected.forEach(id => {
+                    this.setChecked({ id, checked: true });
+                });
                 this.updateRoutes(routes);
                 return;
-            }))
-                .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.tap)(() => {
             }));
         });
-        this.isChecked$ = (id) => {
-            return this.selected$
-                .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)((r) => {
-                return r.includes(id);
-            }));
-        };
         this.activeRouteId$
             .subscribe(d => {
             this.routes
@@ -363,6 +359,22 @@ class MapStore extends _ngrx_component_store__WEBPACK_IMPORTED_MODULE_2__.Compon
                 }
             });
         });
+    }
+    isChecked$(id) {
+        return this.selected$
+            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)((r) => {
+            return r.includes(id);
+        }));
+    }
+    getSelectedFromLocalStorage() {
+        let selected = [];
+        try {
+            selected = JSON.parse(localStorage.getItem(LOCAL_STORAGE_ROUTES)) || [1];
+        }
+        catch (e) {
+            selected = [];
+        }
+        return selected;
     }
 }
 MapStore.ɵfac = function MapStore_Factory(t) { return new (t || MapStore)(); };
@@ -491,6 +503,11 @@ class RouteLayer {
         this.polygon.setStyle({
             opacity: 1,
         });
+        this.circles.forEach(c => {
+            c.setStyle({
+                opacity: 1
+            });
+        });
         const latMin = Math.min(...this.latLng.map(ll => ll.lat));
         const latMax = Math.max(...this.latLng.map(ll => ll.lat));
         const lngMax = Math.max(...this.latLng.map(ll => ll.lng));
@@ -503,7 +520,12 @@ class RouteLayer {
     }
     deHighlight() {
         this.polygon.setStyle({
-            opacity: 0.2,
+            opacity: 0.4,
+        });
+        this.circles.forEach(c => {
+            c.setStyle({
+                opacity: 0.5
+            });
         });
     }
     remove() {
@@ -530,7 +552,7 @@ class RouteLayer {
             ...this.latLng
         ], {
             color: 'red',
-            opacity: 0.2,
+            opacity: 0.4,
             fillColor: '#f03',
             fillOpacity: 0.02,
         });
@@ -539,8 +561,9 @@ class RouteLayer {
     getCircle(latLng) {
         return leaflet__WEBPACK_IMPORTED_MODULE_0__.circle(latLng, {
             color: 'red',
+            opacity: 0.5,
             fillColor: '#f03',
-            fillOpacity: 0.2,
+            fillOpacity: 0.1,
             radius: 1000
         });
     }

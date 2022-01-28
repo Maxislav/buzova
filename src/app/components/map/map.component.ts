@@ -138,7 +138,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   ];
 
   @Input() set routeList(list: IRoute[]) {
-    this.store.updateRouteList(list);
+    this.store.initRouteList(list);
   }
 
   constructor(public store: MapStore) {
@@ -146,7 +146,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
 
-    this.store.updateRouteList(this.initialRouteList);
+    this.store.initRouteList(this.initialRouteList);
 
     this.store.lmap$
       .pipe(take(1))
