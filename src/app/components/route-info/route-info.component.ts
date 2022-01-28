@@ -24,7 +24,6 @@ export class RouteInfoComponent implements OnInit {
   }
 
   onValueChange(e, id: number): void {
-    console.log(e.target.checked);
     this.store.setChecked({
       id,
       checked: e.target.checked

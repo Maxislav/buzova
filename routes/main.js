@@ -323,11 +323,9 @@ class MapStore extends _ngrx_component_store__WEBPACK_IMPORTED_MODULE_2__.Compon
                         .forEach(p => {
                         latLngList.push(new leaflet__WEBPACK_IMPORTED_MODULE_0__.LatLng(p.latLng[0], p.latLng[1]));
                     });
-                    routeLayer.setLatLng(latLngList).draw();
+                    routeLayer.setLatLng(latLngList);
                 });
-                routes.map(r => {
-                    this.setChecked({ id: r.id, checked: true });
-                });
+                this.setChecked({ id: 1, checked: true });
                 this.updateRoutes(routes);
                 return;
             }))
@@ -345,7 +343,9 @@ class MapStore extends _ngrx_component_store__WEBPACK_IMPORTED_MODULE_2__.Compon
             this.routes
                 .forEach(route => {
                 if (route.id === d) {
-                    route.highlight();
+                    if (route.isShown) {
+                        route.highlight();
+                    }
                 }
                 else {
                     route.deHighlight();
@@ -356,13 +356,12 @@ class MapStore extends _ngrx_component_store__WEBPACK_IMPORTED_MODULE_2__.Compon
             .subscribe(selected => {
             this.routes.forEach(r => {
                 if (selected.includes(r.id)) {
-                    r.draw();
+                    r.draw().highlight();
                 }
                 else {
                     r.remove();
                 }
             });
-            //console.log(d);
         });
     }
 }
@@ -420,7 +419,6 @@ class RouteInfoComponent {
         this.store.onHoverRoute(id);
     }
     onValueChange(e, id) {
-        console.log(e.target.checked);
         this.store.setChecked({
             id,
             checked: e.target.checked

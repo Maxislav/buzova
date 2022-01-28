@@ -35,7 +35,9 @@ export class MapStore extends ComponentStore<MapState> {
         this.routes
           .forEach(route => {
             if (route.id === d) {
-              route.highlight();
+              if (route.isShown) {
+                route.highlight();
+              }
             } else {
               route.deHighlight();
             }
@@ -46,12 +48,11 @@ export class MapStore extends ComponentStore<MapState> {
       .subscribe(selected => {
         this.routes.forEach(r => {
           if (selected.includes(r.id)) {
-            r.draw();
-          }else {
+            r.draw().highlight();
+          } else {
             r.remove();
           }
         });
-        //console.log(d);
       });
   }
 
@@ -134,18 +135,16 @@ export class MapStore extends ComponentStore<MapState> {
             .forEach(p => {
               latLngList.push(new LatLng(p.latLng[0], p.latLng[1]));
             });
-          routeLayer.setLatLng(latLngList).draw();
+          routeLayer.setLatLng(latLngList);
         });
-        routes.map(r => {
-          this.setChecked({ id: r.id, checked: true });
-        });
+        this.setChecked({ id: 1, checked: true });
         this.updateRoutes(routes);
-        return
+        return;
       }))
       .pipe(tap(() => {
 
 
-      }))
+      }));
   });
 
 
