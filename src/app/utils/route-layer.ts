@@ -96,7 +96,7 @@ export class RouteLayer {
       color: 'red',
       fillColor: '#f03',
       fillOpacity: 0.2,
-      radius: 500
+      radius: 1000
     });
   }
 

@@ -13,7 +13,7 @@ import { take } from 'rxjs/operators';
   providers: [MapStore]
 })
 export class MapComponent implements OnInit, AfterViewInit {
-  @ViewChild('map', {read: ElementRef}) map;
+  @ViewChild('map', { read: ElementRef }) map;
   initialRouteList: IRoute[] = [
     {
       name: 'Andreevka Osovcy 100км ',
@@ -51,6 +51,85 @@ export class MapComponent implements OnInit, AfterViewInit {
           latLng: [50.36445, 29.345],
         }
       ]
+    },
+    {
+      name: 'Hluhiv Bilyi bereg 152 km',
+      id: 3,
+      points: [
+        {
+
+          name: 'Buzovakta',
+          latLng: [50.39862, 30.06],
+        },
+        {
+          name: 'Hluhiv',
+          latLng: [50.53445, 29.19917],
+        },
+        {
+          name: 'Bilyi Bereh',
+          latLng: [50.76, 29.48195],
+        }
+      ]
+    },
+
+    {
+      name: 'Nedashki2 Kocherov 202 km',
+      id: 4,
+      points: [
+        {
+
+          name: 'Buzovakta',
+          latLng: [50.39862, 30.06],
+        },
+        {
+          name: 'Nedashki2',
+          latLng:[ 50.97112, 29.29388],
+        },
+        {
+          name: 'Kocherov',
+          latLng: [50.36445, 29.345],
+        }
+      ]
+    },
+
+    {
+      name: 'Narodichi Luginy Bilyi Bereh 301 km km',
+      id: 5,
+      points: [
+        {
+
+          name: 'Buzovakta',
+          latLng: [50.39862, 30.06],
+        },
+        {
+          name: 'Narodichi',
+          latLng: [51.20138, 29.06972],
+        },
+        {
+          name: 'Luginy',
+          latLng: [51.09305, 28.41945],
+        }
+      ]
+    },
+
+    {
+      name: 'Obykhody Volodarsk Novezhyttia 302 km',
+      id: 6,
+      points: [
+        {
+
+          name: 'Buzovakta',
+          latLng: [50.39862, 30.06],
+        },
+        {
+          name: '164Obykhody',
+          latLng: [51.01612, 28.97028],
+        },
+        {
+          name: '133Volodarsk',
+          latLng: [50.6075, 28.46667],
+        }
+      ]
     }
   ];
 
@@ -74,7 +153,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.store.mapInit(   this.map.nativeElement);
+    this.store.mapInit(this.map.nativeElement);
   }
 
 }

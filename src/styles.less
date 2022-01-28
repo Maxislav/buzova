@@ -12,3 +12,18 @@ body{
   height: 100%;
   background-color: lightslategray;
 }
+.leaflet-verticalcenter {
+  position: absolute;
+  z-index: 1000;
+  pointer-events: none;
+  top: 50%; /* possible because the placeholder's parent is the map */
+  transform: translateY(-50%); /* using the CSS3 Transform technique */
+  padding-top: 10px;
+}
+
+.leaflet-verticalcenter .leaflet-control {
+  margin-bottom: 10px;
+}
+.leaflet-control-container{
+  
+}

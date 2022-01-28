@@ -71,7 +71,7 @@ export class MapStore extends ComponentStore<MapState> {
 
 
   readonly mapInit = this.updater((state, el: HTMLElement) => {
-    const lmap = L.map(el).setView([50.4113, 30.0456], 10);
+    const lmap = L.map(el).setView([50.4113, 29.9358], 10);
     const tileLayer = L.tileLayer('https://c.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery ©',
       maxZoom: 18,
@@ -116,7 +116,8 @@ export class MapStore extends ComponentStore<MapState> {
   readonly updateRouteList = this.effect((routes$: Observable<IRoute[]>) => {
 
     return combineLatest([routes$, this.lmap$])
-      .pipe(map(([routes]) => {
+      .pipe(map(([routes, lmap]: [IRoute[], L.Map]) => {
+        lmap.zoomControl.setPosition('bottomright');
         return routes;
       }))
       .pipe(tap(() => {
@@ -139,7 +140,12 @@ export class MapStore extends ComponentStore<MapState> {
           this.setChecked({ id: r.id, checked: true });
         });
         this.updateRoutes(routes);
-      }));
+        return
+      }))
+      .pipe(tap(() => {
+
+
+      }))
   });
 
 
