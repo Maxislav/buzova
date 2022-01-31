@@ -73,10 +73,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MapComponent": () => (/* binding */ MapComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 2316);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 2316);
 /* harmony import */ var _map_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map.store */ 5968);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 3466);
-/* harmony import */ var _route_info_route_info_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../route-info/route-info.component */ 2375);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 3466);
+/* harmony import */ var _routes_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../routes.json */ 5648);
+/* harmony import */ var _route_info_route_info_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../route-info/route-info.component */ 2375);
+
 
 
 
@@ -87,128 +89,14 @@ const _c0 = ["map"];
 class MapComponent {
     constructor(store) {
         this.store = store;
-        this.initialRouteList = [
-            {
-                name: 'Andreevka Osovcy 100км ',
-                id: 1,
-                points: [
-                    {
-                        name: 'Buzove',
-                        latLng: [50.39862, 30.06],
-                    },
-                    {
-                        name: 'Andreevka',
-                        latLng: [50.5523, 29.8280]
-                    },
-                    {
-                        name: 'Osovsi',
-                        latLng: [50.3335, 29.4717]
-                    }
-                ],
-            },
-            {
-                name: 'Migalki Kocherov 134 km,',
-                id: 2,
-                points: [
-                    {
-                        name: '000Buzovakta',
-                        latLng: [50.39862, 30.06],
-                    },
-                    {
-                        name: '075Migalki',
-                        latLng: [50.66445, 29.54695],
-                    },
-                    {
-                        name: '049Kocherov',
-                        latLng: [50.36445, 29.345],
-                    }
-                ]
-            },
-            {
-                name: 'Hluhiv Bilyi bereg 152 km',
-                id: 3,
-                points: [
-                    {
-                        name: 'Buzovakta',
-                        latLng: [50.39862, 30.06],
-                    },
-                    {
-                        name: 'Hluhiv',
-                        latLng: [50.53445, 29.19917],
-                    },
-                    {
-                        name: 'Bilyi Bereh',
-                        latLng: [50.76, 29.48195],
-                    }
-                ]
-            },
-            {
-                name: 'Nedashki2 Kocherov 202 km',
-                id: 4,
-                points: [
-                    {
-                        name: 'Buzovakta',
-                        latLng: [50.39862, 30.06],
-                    },
-                    {
-                        name: 'Nedashki2',
-                        latLng: [50.97112, 29.29388],
-                    },
-                    {
-                        name: 'Kocherov',
-                        latLng: [50.36445, 29.345],
-                    }
-                ]
-            },
-            {
-                name: 'Narodichi Luginy Bilyi Bereh 301 km km',
-                id: 5,
-                points: [
-                    {
-                        name: 'Buzovakta',
-                        latLng: [50.39862, 30.06],
-                    },
-                    {
-                        name: 'Narodichi',
-                        latLng: [51.20138, 29.06972],
-                    },
-                    {
-                        name: 'Luginy',
-                        latLng: [51.09305, 28.41945],
-                    }
-                ]
-            },
-            {
-                name: 'Obykhody Volodarsk Novezhyttia 302 km',
-                id: 6,
-                points: [
-                    {
-                        name: 'Buzovakta',
-                        latLng: [50.39862, 30.06],
-                    },
-                    {
-                        name: '164Obykhody',
-                        latLng: [51.01612, 28.97028],
-                    },
-                    {
-                        name: '133Volodarsk',
-                        latLng: [50.6075, 28.46667],
-                    },
-                    {
-                        name: '152Novezhyttia',
-                        latLng: [50.86, 29.395],
-                    }
-                ]
-            }
-        ];
     }
     set routeList(list) {
         this.store.initRouteList(list);
     }
     ngOnInit() {
-        this.store.initRouteList(this.initialRouteList);
+        this.routeList = _routes_json__WEBPACK_IMPORTED_MODULE_1__;
         this.store.lmap$
-            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.take)(1))
+            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.take)(1))
             .subscribe(map => {
         });
     }
@@ -216,16 +104,16 @@ class MapComponent {
         this.store.mapInit(this.map.nativeElement);
     }
 }
-MapComponent.ɵfac = function MapComponent_Factory(t) { return new (t || MapComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_map_store__WEBPACK_IMPORTED_MODULE_0__.MapStore)); };
-MapComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: MapComponent, selectors: [["bzv-map"]], viewQuery: function MapComponent_Query(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵviewQuery"](_c0, 5, _angular_core__WEBPACK_IMPORTED_MODULE_3__.ElementRef);
+MapComponent.ɵfac = function MapComponent_Factory(t) { return new (t || MapComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_map_store__WEBPACK_IMPORTED_MODULE_0__.MapStore)); };
+MapComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: MapComponent, selectors: [["bzv-map"]], viewQuery: function MapComponent_Query(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵviewQuery"](_c0, 5, _angular_core__WEBPACK_IMPORTED_MODULE_4__.ElementRef);
     } if (rf & 2) {
         let _t;
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵloadQuery"]()) && (ctx.map = _t.first);
-    } }, inputs: { routeList: "routeList" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵProvidersFeature"]([_map_store__WEBPACK_IMPORTED_MODULE_0__.MapStore])], decls: 3, vars: 0, consts: [[1, "l-map"], ["map", ""]], template: function MapComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "div", 0, 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](2, "bzv-route-info");
-    } }, directives: [_route_info_route_info_component__WEBPACK_IMPORTED_MODULE_1__.RouteInfoComponent], styles: ["[_nghost-%COMP%] {\n  height: 100%;\n  width: 100%;\n  display: block;\n  position: relative;\n}\n[_nghost-%COMP%]     .leaflet-div-icon {\n  background-color: transparent;\n  border: none;\n}\n.l-map[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n.bzv-route-info[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  padding: 12px 24px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hcC5jb21wb25lbnQubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUNFLFlBQUE7RUFDQSxXQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0FBQUY7QUFKQTtFQVFNLDZCQUFBO0VBQ0EsWUFBQTtBQUROO0FBS0E7RUFDRSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxNQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxVQUFBO0FBSEY7QUFNQTtFQUNFLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLE9BQUE7RUFDQSxVQUFBO0VBQ0Esa0JBQUE7QUFKRiIsImZpbGUiOiJtYXAuY29tcG9uZW50Lmxlc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbjpob3N0e1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuXG4gIDo6bmctZGVlcHtcbiAgICAubGVhZmxldC1kaXYtaWNvbntcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICAgICAgYm9yZGVyOiBub25lO1xuICAgIH1cbiAgfVxufVxuLmwtbWFwIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIHotaW5kZXg6IDE7XG59XG5cbi5ienYtcm91dGUtaW5mb3tcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDA7XG4gIGxlZnQ6IDA7XG4gIHotaW5kZXg6IDI7XG4gIHBhZGRpbmc6IDEycHggMjRweDtcbn1cbiJdfQ== */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵloadQuery"]()) && (ctx.map = _t.first);
+    } }, inputs: { routeList: "routeList" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵProvidersFeature"]([_map_store__WEBPACK_IMPORTED_MODULE_0__.MapStore])], decls: 3, vars: 0, consts: [[1, "l-map"], ["map", ""]], template: function MapComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](0, "div", 0, 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](2, "bzv-route-info");
+    } }, directives: [_route_info_route_info_component__WEBPACK_IMPORTED_MODULE_2__.RouteInfoComponent], styles: ["[_nghost-%COMP%] {\n  height: 100%;\n  width: 100%;\n  display: block;\n  position: relative;\n}\n[_nghost-%COMP%]     .leaflet-div-icon {\n  background-color: transparent;\n  border: none;\n}\n.l-map[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n.bzv-route-info[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  padding: 12px 24px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hcC5jb21wb25lbnQubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUNFLFlBQUE7RUFDQSxXQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0FBQUY7QUFKQTtFQVFNLDZCQUFBO0VBQ0EsWUFBQTtBQUROO0FBS0E7RUFDRSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxNQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxVQUFBO0FBSEY7QUFNQTtFQUNFLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLE9BQUE7RUFDQSxVQUFBO0VBQ0Esa0JBQUE7QUFKRiIsImZpbGUiOiJtYXAuY29tcG9uZW50Lmxlc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbjpob3N0e1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuXG4gIDo6bmctZGVlcHtcbiAgICAubGVhZmxldC1kaXYtaWNvbntcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICAgICAgYm9yZGVyOiBub25lO1xuICAgIH1cbiAgfVxufVxuLmwtbWFwIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIHotaW5kZXg6IDE7XG59XG5cbi5ienYtcm91dGUtaW5mb3tcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDA7XG4gIGxlZnQ6IDA7XG4gIHotaW5kZXg6IDI7XG4gIHBhZGRpbmc6IDEycHggMjRweDtcbn1cbiJdfQ== */"] });
 
 
 /***/ }),
@@ -469,7 +357,7 @@ RouteInfoComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](3, RouteInfoComponent_div_3_Template, 4, 3, "div", 1);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx.isShown ? "Hide routes" : "Show routes", " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx.isShown ? "Hide list routes" : "Show list routes", " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.isShown);
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_2__.NgForOf], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.AsyncPipe], styles: ["[_nghost-%COMP%] {\n  display: block;\n  width: 400px;\n}\nli[_ngcontent-%COMP%] {\n  cursor: pointer;\n  padding: 6px 12px;\n  background-color: rgba(255, 255, 255, 0.54);\n}\nli[_ngcontent-%COMP%]:hover {\n  background-color: white;\n}\nbutton[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 6px 12px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJvdXRlLWluZm8uY29tcG9uZW50Lmxlc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxjQUFBO0VBQ0EsWUFBQTtBQUNGO0FBRUE7RUFDRSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSwyQ0FBQTtBQUFGO0FBQ0U7RUFDRSx1QkFBQTtBQUNKO0FBRUE7RUFDRSxXQUFBO0VBQ0EsaUJBQUE7QUFBRiIsImZpbGUiOiJyb3V0ZS1pbmZvLmNvbXBvbmVudC5sZXNzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3R7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICB3aWR0aDogNDAwcHg7XG59XG5cbmxpe1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIHBhZGRpbmc6IDZweCAxMnB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNTQpO1xuICAmOmhvdmVye1xuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICB9XG59XG5idXR0b257XG4gIHdpZHRoOiAxMDAlO1xuICBwYWRkaW5nOiA2cHggMTJweDtcbn1cbiJdfQ== */"], changeDetection: 0 });
@@ -642,6 +530,17 @@ if (_environments_environment__WEBPACK_IMPORTED_MODULE_1__.environment.productio
 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__.platformBrowser().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_0__.AppModule)
     .catch(err => console.error(err));
 
+
+/***/ }),
+
+/***/ 5648:
+/*!*****************************!*\
+  !*** ./src/app/routes.json ***!
+  \*****************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('[{"name":"Andreevka Osovcy 100км ","id":1,"points":[{"name":"Buzove","latLng":[50.39862,30.06]},{"name":"Andreevka","latLng":[50.5523,29.828]},{"name":"Osovsi","latLng":[50.3335,29.4717]}]},{"name":"Migalki Kocherov 134 km,","id":2,"points":[{"name":"000Buzovakta","latLng":[50.39862,30.06]},{"name":"075Migalki","latLng":[50.66445,29.54695]},{"name":"049Kocherov","latLng":[50.36445,29.345]}]},{"name":"Hluhiv Bilyi bereg 152 km","id":3,"points":[{"name":"Buzovakta","latLng":[50.39862,30.06]},{"name":"Hluhiv","latLng":[50.53445,29.19917]},{"name":"Bilyi Bereh","latLng":[50.76,29.48195]}]},{"name":"Nedashki2 Kocherov 202 km","id":4,"points":[{"name":"Buzovakta","latLng":[50.39862,30.06]},{"name":"Nedashki2","latLng":[50.97112,29.29388]},{"name":"Kocherov","latLng":[50.36445,29.345]}]},{"name":"Narodichi Luginy Bilyi Bereh 301 km km","id":5,"points":[{"name":"Buzovakta","latLng":[50.39862,30.06]},{"name":"Narodichi","latLng":[51.20138,29.06972]},{"name":"Luginy","latLng":[51.09305,28.41945]}]},{"name":"Obykhody Volodarsk Novezhyttia 302 km","id":6,"points":[{"name":"Buzovakta","latLng":[50.39862,30.06]},{"name":"164Obykhody","latLng":[51.01612,28.97028]},{"name":"133Volodarsk","latLng":[50.6075,28.46667]},{"name":"152Novezhyttia","latLng":[50.86,29.395]}]},{"name":"Broniki Kocherov.tsk 324 km","id":7,"points":[{"name":"Buzovakta","latLng":[50.39862,30.06]},{"name":"Broniki","latLng":[50.55,27.8]},{"name":"Kocherov","latLng":[50.36445,29.345]}]},{"name":"Bilyi Bereh Usovo Broniki Gorodnyavka2 Dovbysh Osovcy 510 km","id":8,"points":[{"name":"Buzovakta","latLng":[50.39862,30.06]},{"name":"Bilyi Bereh","latLng":[50.76,29.48195]},{"name":"Usovo","latLng":[51.37555,28.11388]},{"name":"Broniki","latLng":[50.55,27.8]},{"name":"Gorodnyavka2","latLng":[50.26222,27.34638]},{"name":"Dovbysh","latLng":[50.36862,28.01055]},{"name":"Osovsi","latLng":[50.3335,29.4717]}]},{"name":"467 km, Broniki Hmelnik Chernorud Kocherov.tsk","id":9,"points":[{"name":"Buzovakta","latLng":[50.39862,30.06]},{"name":"Broniki","latLng":[50.55,27.8]},{"name":"Hmelnik","latLng":[49.56667,27.97638]},{"name":"Chernorud","latLng":[49.85,29.05833]},{"name":"Kocherov","latLng":[50.36445,29.345]}]},{"name":"601 km, Samostrel Bagrynivci Lozna Chernorud Kocherov.tsk","id":10,"points":[{"name":"Buzovakta","latLng":[50.39862,30.06]},{"name":"Samostrel","latLng":[50.59917,26.92945]},{"name":"Bagrynivci","latLng":[49.30695,27.93778]},{"name":"Lozna","latLng":[49.61667,28.23333]},{"name":"Chernorud","latLng":[49.85,29.05833]},{"name":"Kocherov","latLng":[50.36445,29.345]}]},{"name":"763 km, Nevirkov Krygopol","id":11,"points":[{"name":"Buzovakta","latLng":[50.39862,30.06]},{"name":"Nevirkov","latLng":[50.7,26.83333]},{"name":"Krygopol","latLng":[48.41112,28.9]}]},{"name":"1008 km, Manevichi2 Bochkivcy Dyakov","id":12,"points":[{"name":"Buzovakta","latLng":[50.39862,30.06]},{"name":"Manevichi2","latLng":[51.19945,25.4275]},{"name":"Bochkivcy","latLng":[48.43333,26.16667]},{"name":"Dyakov","latLng":[49.385,27.92778]}]}]');
 
 /***/ })
 

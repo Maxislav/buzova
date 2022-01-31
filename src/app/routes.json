@@ -1,0 +1,403 @@
+[
+  {
+    "name": "Andreevka Osovcy 100км ",
+    "id": 1,
+    "points": [
+      {
+        "name": "Buzove",
+        "latLng": [
+          50.39862,
+          30.06
+        ]
+      },
+      {
+        "name": "Andreevka",
+        "latLng": [
+          50.5523,
+          29.828
+        ]
+      },
+      {
+        "name": "Osovsi",
+        "latLng": [
+          50.3335,
+          29.4717
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Migalki Kocherov 134 km,",
+    "id": 2,
+    "points": [
+      {
+        "name": "000Buzovakta",
+        "latLng": [
+          50.39862,
+          30.06
+        ]
+      },
+      {
+        "name": "075Migalki",
+        "latLng": [
+          50.66445,
+          29.54695
+        ]
+      },
+      {
+        "name": "049Kocherov",
+        "latLng": [
+          50.36445,
+          29.345
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hluhiv Bilyi bereg 152 km",
+    "id": 3,
+    "points": [
+      {
+        "name": "Buzovakta",
+        "latLng": [
+          50.39862,
+          30.06
+        ]
+      },
+      {
+        "name": "Hluhiv",
+        "latLng": [
+          50.53445,
+          29.19917
+        ]
+      },
+      {
+        "name": "Bilyi Bereh",
+        "latLng": [
+          50.76,
+          29.48195
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Nedashki2 Kocherov 202 km",
+    "id": 4,
+    "points": [
+      {
+        "name": "Buzovakta",
+        "latLng": [
+          50.39862,
+          30.06
+        ]
+      },
+      {
+        "name": "Nedashki2",
+        "latLng": [
+          50.97112,
+          29.29388
+        ]
+      },
+      {
+        "name": "Kocherov",
+        "latLng": [
+          50.36445,
+          29.345
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Narodichi Luginy Bilyi Bereh 301 km km",
+    "id": 5,
+    "points": [
+      {
+        "name": "Buzovakta",
+        "latLng": [
+          50.39862,
+          30.06
+        ]
+      },
+      {
+        "name": "Narodichi",
+        "latLng": [
+          51.20138,
+          29.06972
+        ]
+      },
+      {
+        "name": "Luginy",
+        "latLng": [
+          51.09305,
+          28.41945
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Obykhody Volodarsk Novezhyttia 302 km",
+    "id": 6,
+    "points": [
+      {
+        "name": "Buzovakta",
+        "latLng": [
+          50.39862,
+          30.06
+        ]
+      },
+      {
+        "name": "164Obykhody",
+        "latLng": [
+          51.01612,
+          28.97028
+        ]
+      },
+      {
+        "name": "133Volodarsk",
+        "latLng": [
+          50.6075,
+          28.46667
+        ]
+      },
+      {
+        "name": "152Novezhyttia",
+        "latLng": [
+          50.86,
+          29.395
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Broniki Kocherov.tsk 324 km",
+    "id": 7,
+    "points": [
+      {
+        "name": "Buzovakta",
+        "latLng": [
+          50.39862,
+          30.06
+        ]
+      },
+      {
+        "name": "Broniki",
+        "latLng": [
+          50.55,
+          27.8
+        ]
+      },
+      {
+        "name": "Kocherov",
+        "latLng": [
+          50.36445,
+          29.345
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Bilyi Bereh Usovo Broniki Gorodnyavka2 Dovbysh Osovcy 510 km",
+    "id": 8,
+    "points": [
+      {
+        "name": "Buzovakta",
+        "latLng": [
+          50.39862,
+          30.06
+        ]
+      },
+      {
+        "name": "Bilyi Bereh",
+        "latLng": [
+          50.76,
+          29.48195
+        ]
+      },
+      {
+        "name": "Usovo",
+        "latLng": [
+          51.37555,
+          28.11388
+        ]
+      },
+      {
+        "name": "Broniki",
+        "latLng": [
+          50.55,
+          27.8
+        ]
+      },
+      {
+        "name": "Gorodnyavka2",
+        "latLng": [
+          50.26222,
+          27.34638
+        ]
+      },
+      {
+        "name": "Dovbysh",
+        "latLng": [
+          50.36862,
+          28.01055
+        ]
+      },
+      {
+        "name": "Osovsi",
+        "latLng": [
+          50.3335,
+          29.4717
+        ]
+      }
+    ]
+  },
+  {
+    "name": "467 km, Broniki Hmelnik Chernorud Kocherov.tsk",
+    "id": 9,
+    "points": [
+      {
+        "name": "Buzovakta",
+        "latLng": [
+          50.39862,
+          30.06
+        ]
+      },
+      {
+        "name": "Broniki",
+        "latLng": [
+          50.55,
+          27.8
+        ]
+      },
+      {
+        "name": "Hmelnik",
+        "latLng": [
+          49.56667,
+          27.97638
+        ]
+      },
+      {
+        "name": "Chernorud",
+        "latLng": [
+          49.85,
+          29.05833
+        ]
+      },
+      {
+        "name": "Kocherov",
+        "latLng": [
+          50.36445,
+          29.345
+        ]
+      }
+    ]
+  },
+  {
+    "name": "601 km, Samostrel Bagrynivci Lozna Chernorud Kocherov.tsk",
+    "id": 10,
+    "points": [
+      {
+        "name": "Buzovakta",
+        "latLng": [
+          50.39862,
+          30.06
+        ]
+      },
+      {
+        "name": "Samostrel",
+        "latLng": [
+          50.59917,
+          26.92945
+        ]
+      },
+      {
+        "name": "Bagrynivci",
+        "latLng": [
+          49.30695,
+          27.93778
+        ]
+      },
+      {
+        "name": "Lozna",
+        "latLng": [
+          49.61667,
+          28.23333
+        ]
+      },
+      {
+        "name": "Chernorud",
+        "latLng": [
+          49.85,
+          29.05833
+        ]
+      },
+      {
+        "name": "Kocherov",
+        "latLng": [
+          50.36445,
+          29.345
+        ]
+      }
+    ]
+  },
+  {
+    "name": "763 km, Nevirkov Krygopol",
+    "id": 11,
+    "points": [
+      {
+        "name": "Buzovakta",
+        "latLng": [
+          50.39862,
+          30.06
+        ]
+      },
+      {
+        "name": "Nevirkov",
+        "latLng": [
+          50.7,
+          26.83333
+        ]
+      },
+      {
+        "name": "Krygopol",
+        "latLng": [
+          48.41112,
+          28.9
+        ]
+      }
+    ]
+  },
+  {
+    "name": "1008 km, Manevichi2 Bochkivcy Dyakov",
+    "id": 12,
+    "points": [
+      {
+        "name": "Buzovakta",
+        "latLng": [
+          50.39862,
+          30.06
+        ]
+      },
+      {
+        "name": "Manevichi2",
+        "latLng": [
+          51.19945,
+          25.4275
+        ]
+      },
+      {
+        "name": "Bochkivcy",
+        "latLng": [
+          48.43333,
+          26.16667
+        ]
+      },
+      {
+        "name": "Dyakov",
+        "latLng": [
+          49.385,
+          27.92778
+        ]
+      }
+    ]
+  }
+]
