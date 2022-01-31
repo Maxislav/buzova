@@ -75,9 +75,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 2316);
 /* harmony import */ var _map_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map.store */ 5968);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 3466);
 /* harmony import */ var _routes_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../routes.json */ 5648);
-/* harmony import */ var _route_info_route_info_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../route-info/route-info.component */ 2375);
+/* harmony import */ var _flight_area_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../flight-area.json */ 998);
+/* harmony import */ var _route_info_route_info_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../route-info/route-info.component */ 2375);
 
 
 
@@ -93,12 +93,12 @@ class MapComponent {
     set routeList(list) {
         this.store.initRouteList(list);
     }
+    set flightArea(data) {
+        this.store.initFlightArea(data);
+    }
     ngOnInit() {
         this.routeList = _routes_json__WEBPACK_IMPORTED_MODULE_1__;
-        this.store.lmap$
-            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.take)(1))
-            .subscribe(map => {
-        });
+        this.flightArea = _flight_area_json__WEBPACK_IMPORTED_MODULE_2__;
     }
     ngAfterViewInit() {
         this.store.mapInit(this.map.nativeElement);
@@ -110,10 +110,10 @@ MapComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["�
     } if (rf & 2) {
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵloadQuery"]()) && (ctx.map = _t.first);
-    } }, inputs: { routeList: "routeList" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵProvidersFeature"]([_map_store__WEBPACK_IMPORTED_MODULE_0__.MapStore])], decls: 3, vars: 0, consts: [[1, "l-map"], ["map", ""]], template: function MapComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { routeList: "routeList", flightArea: "flightArea" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵProvidersFeature"]([_map_store__WEBPACK_IMPORTED_MODULE_0__.MapStore])], decls: 3, vars: 0, consts: [[1, "l-map"], ["map", ""]], template: function MapComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](0, "div", 0, 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](2, "bzv-route-info");
-    } }, directives: [_route_info_route_info_component__WEBPACK_IMPORTED_MODULE_2__.RouteInfoComponent], styles: ["[_nghost-%COMP%] {\n  height: 100%;\n  width: 100%;\n  display: block;\n  position: relative;\n}\n[_nghost-%COMP%]     .leaflet-div-icon {\n  background-color: transparent;\n  border: none;\n}\n.l-map[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n.bzv-route-info[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  padding: 12px 24px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hcC5jb21wb25lbnQubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUNFLFlBQUE7RUFDQSxXQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0FBQUY7QUFKQTtFQVFNLDZCQUFBO0VBQ0EsWUFBQTtBQUROO0FBS0E7RUFDRSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxNQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxVQUFBO0FBSEY7QUFNQTtFQUNFLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLE9BQUE7RUFDQSxVQUFBO0VBQ0Esa0JBQUE7QUFKRiIsImZpbGUiOiJtYXAuY29tcG9uZW50Lmxlc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbjpob3N0e1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuXG4gIDo6bmctZGVlcHtcbiAgICAubGVhZmxldC1kaXYtaWNvbntcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICAgICAgYm9yZGVyOiBub25lO1xuICAgIH1cbiAgfVxufVxuLmwtbWFwIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIHotaW5kZXg6IDE7XG59XG5cbi5ienYtcm91dGUtaW5mb3tcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDA7XG4gIGxlZnQ6IDA7XG4gIHotaW5kZXg6IDI7XG4gIHBhZGRpbmc6IDEycHggMjRweDtcbn1cbiJdfQ== */"] });
+    } }, directives: [_route_info_route_info_component__WEBPACK_IMPORTED_MODULE_3__.RouteInfoComponent], styles: ["[_nghost-%COMP%] {\n  height: 100%;\n  width: 100%;\n  display: block;\n  position: relative;\n}\n[_nghost-%COMP%]     .leaflet-div-icon {\n  background-color: transparent;\n  border: none;\n}\n.l-map[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n.bzv-route-info[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  padding: 12px 24px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hcC5jb21wb25lbnQubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUNFLFlBQUE7RUFDQSxXQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0FBQUY7QUFKQTtFQVFNLDZCQUFBO0VBQ0EsWUFBQTtBQUROO0FBS0E7RUFDRSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxNQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxVQUFBO0FBSEY7QUFNQTtFQUNFLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLE9BQUE7RUFDQSxVQUFBO0VBQ0Esa0JBQUE7QUFKRiIsImZpbGUiOiJtYXAuY29tcG9uZW50Lmxlc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbjpob3N0e1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuXG4gIDo6bmctZGVlcHtcbiAgICAubGVhZmxldC1kaXYtaWNvbntcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICAgICAgYm9yZGVyOiBub25lO1xuICAgIH1cbiAgfVxufVxuLmwtbWFwIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIHotaW5kZXg6IDE7XG59XG5cbi5ienYtcm91dGUtaW5mb3tcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDA7XG4gIGxlZnQ6IDA7XG4gIHotaW5kZXg6IDI7XG4gIHBhZGRpbmc6IDEycHggMjRweDtcbn1cbiJdfQ== */"] });
 
 
 /***/ }),
@@ -192,6 +192,57 @@ class MapStore extends _ngrx_component_store__WEBPACK_IMPORTED_MODULE_2__.Compon
             return Object.assign(Object.assign({}, state), { selected });
         });
         this.activeRouteId$ = this.select(({ activeRouteId }) => activeRouteId);
+        this.initFlightArea = this.effect((geoJon$) => {
+            return (0,rxjs__WEBPACK_IMPORTED_MODULE_4__.combineLatest)([geoJon$, this.lmap$])
+                .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(([geoJson, lmap]) => {
+                let geoJsonLayer;
+                const getColor = (d) => {
+                    return d > 1000 ? '#800026' :
+                        d > 500 ? '#BD0026' :
+                            d > 200 ? '#E31A1C' :
+                                d > 100 ? '#b8dffc' :
+                                    d > 50 ? '#cafdb8' :
+                                        d > 20 ? '#FEB24C' :
+                                            d > 10 ? '#FED976' : '#bbfff3';
+                };
+                const style = (feature) => {
+                    return {
+                        weight: 2,
+                        opacity: 1,
+                        color: '#b25632',
+                        dashArray: '3',
+                        fillOpacity: 0.3,
+                        fillColor: getColor(feature.properties.density)
+                    };
+                };
+                const highlightFeature = (e) => {
+                    const layer = e.target;
+                    layer.setStyle({
+                        weight: 5,
+                        color: '#e22718',
+                        dashArray: '',
+                        fillOpacity: 0.1
+                    });
+                    if (!leaflet__WEBPACK_IMPORTED_MODULE_0__.Browser.ie && !leaflet__WEBPACK_IMPORTED_MODULE_0__.Browser.opera && !leaflet__WEBPACK_IMPORTED_MODULE_0__.Browser.edge) {
+                        layer.bringToFront();
+                    }
+                };
+                const resetHighlight = (e) => {
+                    geoJsonLayer.resetStyle(e.target);
+                };
+                const onEachFeature = (feature, layer) => {
+                    layer.on({
+                        mouseover: highlightFeature,
+                        mouseout: resetHighlight,
+                    });
+                };
+                geoJsonLayer = leaflet__WEBPACK_IMPORTED_MODULE_0__.geoJSON(geoJson, {
+                    style,
+                    onEachFeature
+                }).addTo(lmap);
+                return true;
+            }));
+        });
         this.initRouteList = this.effect((routes$) => {
             return (0,rxjs__WEBPACK_IMPORTED_MODULE_4__.combineLatest)([routes$, this.lmap$])
                 .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(([routes, lmap]) => {
@@ -530,6 +581,17 @@ if (_environments_environment__WEBPACK_IMPORTED_MODULE_1__.environment.productio
 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__.platformBrowser().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_0__.AppModule)
     .catch(err => console.error(err));
 
+
+/***/ }),
+
+/***/ 998:
+/*!**********************************!*\
+  !*** ./src/app/flight-area.json ***!
+  \**********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"type":"FeatureCollection","features":[{"type":"Feature","id":"01","properties":{"name":"UKT284B","density":51},"geometry":{"type":"Polygon","coordinates":[[[30.075384,50.377086],[30.205654,50.425358],[30.183055,50.456563],[30.066342,50.52117],[29.914068,50.542],[29.915503,50.34658]]]}},{"type":"Feature","id":"01","properties":{"name":"ukt824А","density":10},"geometry":{"type":"Polygon","coordinates":[[[29.804435,50.364818],[29.826933,50.552594],[29.914068,50.542],[29.915503,50.34658]]]}}]}');
 
 /***/ }),
 

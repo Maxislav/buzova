@@ -113,6 +113,64 @@ export class MapStore extends ComponentStore<MapState> {
 
   activeRouteId$ = this.select(({ activeRouteId }) => activeRouteId);
 
+  readonly initFlightArea = this.effect((geoJon$: Observable<any>) => {
+    return combineLatest([geoJon$, this.lmap$])
+      .pipe(map(([geoJson, lmap]: [any, L.Map]) => {
+        let geoJsonLayer;
+        const getColor = (d) => {
+          return d > 1000 ? '#800026' :
+            d > 500 ? '#BD0026' :
+              d > 200 ? '#E31A1C' :
+                d > 100 ? '#b8dffc' :
+                  d > 50 ? '#cafdb8' :
+                    d > 20 ? '#FEB24C' :
+                      d > 10 ? '#FED976' : '#bbfff3';
+        };
+        const style = (feature) => {
+          return {
+            weight: 2,
+            opacity: 1,
+            color: '#b25632',
+            dashArray: '3',
+            fillOpacity: 0.3,
+            fillColor: getColor(feature.properties.density)
+          };
+        };
+
+        const highlightFeature = (e) => {
+          const layer = e.target;
+
+          layer.setStyle({
+            weight: 5,
+            color: '#e22718',
+            dashArray: '',
+            fillOpacity: 0.1
+          });
+
+          if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            layer.bringToFront();
+          }
+        };
+
+        const resetHighlight = (e) => {
+          geoJsonLayer.resetStyle(e.target);
+        };
+
+        const onEachFeature = (feature, layer) => {
+          layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+          });
+        };
+        geoJsonLayer = L.geoJSON(geoJson, {
+          style,
+          onEachFeature
+        }).addTo(lmap);
+
+        return true;
+      }));
+  });
+
 
   readonly initRouteList = this.effect((routes$: Observable<IRoute[]>) => {
     return combineLatest([routes$, this.lmap$])

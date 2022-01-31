@@ -7,6 +7,8 @@ import { MapStore } from './map.store';
 import { take } from 'rxjs/operators';
 
 import routes from '../../routes.json';
+import flightAreaData from '../../flight-area.json';
+import { statesData } from '../../fly-area';
 
 @Component({
   selector: 'bzv-map',
@@ -22,16 +24,18 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.store.initRouteList(list);
   }
 
+  @Input() set flightArea(data){
+    this.store.initFlightArea(data)
+  }
+
   constructor(public store: MapStore) {
   }
 
   ngOnInit(): void {
     this.routeList = routes as IRoute[];
-    this.store.lmap$
-      .pipe(take(1))
-      .subscribe(map => {
 
-      });
+    this.flightArea = flightAreaData
+
 
   }
 
