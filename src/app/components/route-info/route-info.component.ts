@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class RouteInfoComponent implements OnInit {
   @HostBinding('class') cssClass = 'bzv-route-info';
   routes$ = this.store.routes$;
+  isShown = true;
 
   constructor(private store: MapStore) {
   }
@@ -33,6 +34,10 @@ export class RouteInfoComponent implements OnInit {
 
   isChecked(id: number): Observable<boolean> {
     return this.store.isChecked$(id);
+  }
+
+  onShow(): void {
+    this.isShown = !this.isShown;
   }
 
 }
