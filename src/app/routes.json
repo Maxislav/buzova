@@ -27,7 +27,7 @@
     ]
   },
   {
-    "name": "Migalki Kocherov 134 km,",
+    "name": "Migalki Kocherov 134km",
     "id": 2,
     "points": [
       {
@@ -54,7 +54,7 @@
     ]
   },
   {
-    "name": "Hluhiv Bilyi bereg 152 km",
+    "name": "Hluhiv Bilyi bereg 152km",
     "id": 3,
     "points": [
       {
@@ -81,7 +81,7 @@
     ]
   },
   {
-    "name": "Nedashki2 Kocherov 202 km",
+    "name": "Nedashki2 Kocherov 202km",
     "id": 4,
     "points": [
       {
@@ -108,7 +108,7 @@
     ]
   },
   {
-    "name": "Narodichi Luginy Bilyi Bereh 301 km km",
+    "name": "Narodichi, Luginy Bilyi Bereh 301km",
     "id": 5,
     "points": [
       {
@@ -130,6 +130,13 @@
         "latLng": [
           51.09305,
           28.41945
+        ]
+      },
+      {
+        "name": "Bilyi Bereh",
+        "latLng": [
+          50.76,
+          29.48195
         ]
       }
     ]
@@ -169,7 +176,7 @@
     ]
   },
   {
-    "name": "Broniki Kocherov.tsk 324 km",
+    "name": "Broniki, Kocherov 324km",
     "id": 7,
     "points": [
       {
@@ -196,7 +203,7 @@
     ]
   },
   {
-    "name": "Bilyi Bereh Usovo Broniki Gorodnyavka2 Dovbysh Osovcy 510 km",
+    "name": "Bilyi Bereh, Usovo, Broniki, Gorodnyavka2, Dovbysh, Osovcy 510km",
     "id": 8,
     "points": [
       {
@@ -251,7 +258,7 @@
     ]
   },
   {
-    "name": "467 km, Broniki Hmelnik Chernorud Kocherov.tsk",
+    "name": "Broniki Hmelnik Chernorud Kocherov 467km",
     "id": 9,
     "points": [
       {
@@ -292,7 +299,7 @@
     ]
   },
   {
-    "name": "601 km, Samostrel Bagrynivci Lozna Chernorud Kocherov.tsk",
+    "name": "Samostrel Bagrynivci Lozna Chernorud Kocherov 601km",
     "id": 10,
     "points": [
       {
@@ -340,7 +347,7 @@
     ]
   },
   {
-    "name": "763 km, Nevirkov Krygopol",
+    "name": "Nevirkov Krygopol 763km",
     "id": 11,
     "points": [
       {
@@ -367,7 +374,7 @@
     ]
   },
   {
-    "name": "1008 km, Manevichi2 Bochkivcy Dyakov",
+    "name": "Manevichi2 Bochkivcy Dyakov 1008km",
     "id": 12,
     "points": [
       {

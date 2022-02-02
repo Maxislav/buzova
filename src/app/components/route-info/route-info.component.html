@@ -1,12 +1,12 @@
 <div>
   <button (click)="onShow()">
-    {{this.isShown ? 'Hide list routes' : 'Show list routes'}}
+    {{this.isShown ? 'Hide list of routes' : 'Show list of routes'}}
   </button>
 </div>
 <div *ngIf="isShown">
   <ul>
-    <li *ngFor="let item of routes$ | async; let i = index" (mouseover)="onHover(item.id)">
-       {{i+1}} {{item.name }}  <input type="checkbox" [checked]="isChecked(item.id) | async" (change)="onValueChange($event, item.id)">
+    <li *ngFor="let item of routes$ | async; let i = index" (mouseover)="onHover(item.id)" (click)="onItemClick($event, item.id)">
+      <input type="checkbox" [checked]="isChecked(item.id) | async" (change)="onValueChange($event, item.id)"> {{i+1}} {{item.name }}
     </li>
   </ul>
 </div>

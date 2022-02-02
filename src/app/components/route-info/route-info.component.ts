@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
 import { MapStore } from '../map/map.store';
 import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'bzv-route-info',
@@ -29,7 +30,18 @@ export class RouteInfoComponent implements OnInit {
       id,
       checked: e.target.checked
     });
+  }
 
+  onItemClick(e, id: number): void {
+    e.stopPropagation()
+    this.store.isChecked$(id)
+      .pipe(take(1))
+      .subscribe((checked) => {
+        this.store.setChecked({
+          id,
+          checked: !checked
+        });
+      });
   }
 
   isChecked(id: number): Observable<boolean> {
