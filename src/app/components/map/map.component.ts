@@ -18,8 +18,8 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.store.initRouteList(list);
   }
 
-  @Input() set flightArea(data){
-    this.store.initFlightArea(data)
+  @Input() set flightArea(data) {
+    this.store.initFlightArea(data);
   }
 
   constructor(public store: MapStore) {
@@ -27,10 +27,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.routeList = routes as IRoute[];
-
-    this.flightArea = flightAreaData
-
-
+    this.flightArea = flightAreaData;
   }
 
   ngAfterViewInit(): void {

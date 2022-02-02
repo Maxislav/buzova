@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { IRoute } from '../../interface/route.interface';
 import * as L from 'leaflet';
-import { concatMap, filter, flatMap, map, mergeMap, switchMap, take, tap, withLatestFrom } from 'rxjs/operators';
+import { filter, map, takeUntil, tap } from 'rxjs/operators';
 import { combineLatest, Observable, of, pipe } from 'rxjs';
-import { circle, Circle, LatLng, Polygon } from 'leaflet';
+import { LatLng } from 'leaflet';
 import { RouteLayer } from '../../utils/route-layer';
 
-// import L from ''
 
 interface MapState {
   activeRouteId: number;
@@ -33,6 +32,7 @@ export class MapStore extends ComponentStore<MapState> {
   constructor() {
     super(defaultState);
     this.activeRouteId$
+      .pipe(takeUntil(this.destroy$))
       .subscribe(d => {
         this.routes
           .forEach(route => {
@@ -47,6 +47,7 @@ export class MapStore extends ComponentStore<MapState> {
       });
 
     this.selected$
+      .pipe(takeUntil(this.destroy$))
       .subscribe(selected => {
         this.routes.forEach(r => {
           if (selected.includes(r.id)) {
@@ -56,9 +57,33 @@ export class MapStore extends ComponentStore<MapState> {
           }
         });
       });
+
+    this.routes$
+      .pipe(takeUntil(this.destroy$))
+      .pipe(tap(() => {
+        this.routes
+          .forEach(r => r.remove());
+        this.routes.length = 0;
+      }))
+      .subscribe((routes) => {
+        routes.forEach(route => {
+          const latLngList: LatLng[] = [];
+          const routeLayer: RouteLayer = new RouteLayer(route.id, route.name, this.get().lmap);
+          this.routes.push(routeLayer);
+          route.points
+            .forEach(p => {
+              latLngList.push(new LatLng(p.latLng[0], p.latLng[1]));
+            });
+          routeLayer.setLatLng(latLngList);
+        });
+        const selected = this.getSelectedFromLocalStorage();
+        selected.forEach(id => {
+          this.setChecked({ id, checked: true });
+        });
+      });
   }
 
-  updateRoutes = this.updater((state, routes: IRoute[]) => {
+  readonly updateRoutes = this.updater((state, routes: IRoute[]) => {
     return {
       ...state,
       routes
@@ -68,10 +93,10 @@ export class MapStore extends ComponentStore<MapState> {
   readonly lmap$ = this.select(({ lmap }) => {
     return lmap;
   }).pipe(filter(Boolean));
-
-  readonly routes$ = this.select(({ routes }) => routes);
+  readonly routes$ = this.select(this.lmap$, this.state$, (a, b) => {
+    return b.routes;
+  });
   readonly selected$ = this.select(({ selected }) => selected);
-
 
   readonly mapInit = this.updater((state, el: HTMLElement) => {
     const lmap = L.map(el).setView([50.4113, 29.9358], 10);
@@ -111,7 +136,7 @@ export class MapStore extends ComponentStore<MapState> {
     };
   });
 
-  activeRouteId$ = this.select(({ activeRouteId }) => activeRouteId);
+  readonly activeRouteId$ = this.select(({ activeRouteId }) => activeRouteId);
 
   readonly initFlightArea = this.effect((geoJon$: Observable<any>) => {
     return combineLatest([geoJon$, this.lmap$])
@@ -178,29 +203,8 @@ export class MapStore extends ComponentStore<MapState> {
         lmap.zoomControl.setPosition('bottomright');
         return routes;
       }))
-      .pipe(tap(() => {
-        this.routes
-          .forEach(r => r.remove());
-        this.routes.length = 0;
-      }))
       .pipe(map((routes) => {
-        routes.forEach(route => {
-          const latLngList: LatLng[] = [];
-          const routeLayer: RouteLayer = new RouteLayer(route.id, route.name, this.get().lmap);
-          this.routes.push(routeLayer);
-          route.points
-            .forEach(p => {
-              latLngList.push(new LatLng(p.latLng[0], p.latLng[1]));
-            });
-          routeLayer.setLatLng(latLngList);
-        });
-        const selected = this.getSelectedFromLocalStorage();
-        selected.forEach(id => {
-          this.setChecked({ id, checked: true });
-        });
-
-        this.updateRoutes(routes);
-        return;
+        return this.updateRoutes(routes);
       }));
 
   });
